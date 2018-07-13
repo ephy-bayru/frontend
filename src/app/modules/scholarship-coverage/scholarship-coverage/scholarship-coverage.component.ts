@@ -33,8 +33,10 @@ export class ScholarshipCoverageComponent implements OnInit {
     this.scholarshipcoverageForm = this.fb.group({
       scholarship: activeCoverage.scholarship ? [activeCoverage.scholarship, Validators.required] :
                                                           ['', Validators.required],
+      scholarship_type: activeCoverage.scholarship_type ? [activeCoverage.scholarship_type, Validators.required] :
+                                                          ['', Validators.required],
       fee_type: activeCoverage.fee_type ? [activeCoverage.fee_type, Validators.required] :
-                                                    ['', Validators.required],
+                                          ['', Validators.required],
       amount: activeCoverage.amount ? [activeCoverage.amount, Validators.required] :
                                       ['', Validators.required],
       amount_type: activeCoverage.amount_type ? [activeCoverage.amount_type, Validators.required] :
@@ -62,6 +64,7 @@ export class ScholarshipCoverageComponent implements OnInit {
     const CoverageData = {
       id: this.id ? this.id : 0,
       scholarship: formModel.scholarship_code ? formModel.scholarship_code : '',
+      scholarship_type: formModel.scholarship_type ? formModel.scholarship_type : '',
       fee_type: formModel.fee_type_code ? formModel.fee_type_code : '',
       amount: formModel.amount ? formModel.amount : '',
       amount_type: formModel.amount_type ? formModel.amount_type : '',

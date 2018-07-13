@@ -8,4 +8,8 @@ export class EnrollmentService extends CrudService {
   constructor(private httpClient: HttpClient) {
     super(httpClient, '/enrollments/');
   }
+  getCourse() {
+    return this.httpClient.get <any[]>(`${this.baseUrl}/${'courses'}`);
+  }
+
 }

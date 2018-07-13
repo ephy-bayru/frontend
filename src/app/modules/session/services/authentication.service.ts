@@ -5,15 +5,23 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthenticationService {
+  baseUrl = 'http://localhost/smart_school/index.php/api/users';
     constructor(private http: HttpClient) { }
 
     login(username: string, password: string) {
-        return this.http.post<any>('/api/authenticate', { username: username, password: password })
+        return this.http.post<any>(this.baseUrl, {
+             username: username,
+             password: password
+             })
             .pipe(map((res: any) => {
                 // login successful if there's a jwt token in the response
                 if (res && res.token) {
                 // store username and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('activeUser', JSON.stringify({ username, token: res.token }));
+                    localStorage.setItem('activeUser',
+                     JSON.stringify({
+                         username,
+                         token: res.token
+                         }));
                 }
             }));
     }

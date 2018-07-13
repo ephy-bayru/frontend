@@ -81,7 +81,8 @@ export class ScholarshipTypeComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    this.router.navigate([`/manage/${'scholarship_coverage'}`]);
+    const data = this.prepareData();
+    this.router.navigate([`/manage/${'scholarship_coverage'}`, { name: data.Name, amount: data.Amount, amount_type: data.Amount_Type }]);
 
   }
     //  onSubmit() {

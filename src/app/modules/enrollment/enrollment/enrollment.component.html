@@ -43,10 +43,13 @@
            </div>
        <div>
             <mat-form-field class="wrap">
-                <input matInput type="string | number"
-                                placeholder="course"
-                                formControlName="Course">
-            </mat-form-field>
+              <mat-select placeholder="course"
+                          formControlName="Course">
+                  <mat-option *ngFor="let course of course$" [value]="course.name">
+                          {{ course.name }}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
         </div>
       </div>
      </mat-card>

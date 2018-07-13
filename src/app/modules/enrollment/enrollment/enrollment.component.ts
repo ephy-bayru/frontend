@@ -19,7 +19,7 @@ export class EnrollmentComponent implements OnInit {
   id: number;
   id_no: string | number;
   Term = ['first', 'second'];
-
+  course$: any[] = [];
   constructor( private fb: FormBuilder,
                private activatedRoute: ActivatedRoute,
                private enrollmentService: EnrollmentService, ) {
@@ -49,6 +49,8 @@ export class EnrollmentComponent implements OnInit {
     this.isUpdate = (this.id) ? true : false;
     this.enrollmentService.getData(this.id)
         .subscribe((enrollment: any) => this.generateForm(enrollment));
+    this.enrollmentService.getCourse()
+        .subscribe((course: any) => this.course$ = course.result);
   }
 
   prepareData(): any {

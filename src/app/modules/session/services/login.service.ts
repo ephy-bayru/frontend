@@ -4,7 +4,8 @@ import { User } from './../user.model';
 
 @Injectable()
 export class LoginService {
-  readonly baseUrl = 'http://localhost:/../api/users';
+  readonly baseUrl = 'http://localhost/smart_school/index.php/api/users';
+
   constructor(private http: HttpClient) { }
 
   getAll() {
