@@ -17,6 +17,7 @@ import { LoginRoutingModule } from './../login-routing.module';
 import { AuthGuard } from '../guards/auth.guard';
 import { AuthenticationService } from '../services/authentication.service';
 import { JwtInterceptor } from '../helpers/jwt.interceptor';
+import { AlertService } from '../services/alert.service';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { JwtInterceptor } from '../helpers/jwt.interceptor';
   providers: [AuthGuard,
               AuthenticationService,
               LoginService,
+              AlertService,
               {
                 provide: HTTP_INTERCEPTORS,
                 useClass: JwtInterceptor,

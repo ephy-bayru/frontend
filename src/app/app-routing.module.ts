@@ -8,9 +8,10 @@ import { TableComponent } from './components/table/table.component';
 
 const routes: Routes = [
     { path: '',  redirectTo: 'home', pathMatch: 'full'},
-    { path: 'data/:id', component: TableComponent , data : {title : 'List'}},
-    { path: 'home', component: HomeComponent, data: {title : 'Home'} },
-    { path: 'login', component: LoginComponent}
+    { path: 'data/:id', component: TableComponent , data : {title : 'List'}, canActivate: [AuthGuard]},
+    { path: 'home', component: HomeComponent, data: {title : 'Home'}, canActivate: [AuthGuard] },
+    { path: 'login', component: LoginComponent},
+    { path: '**', redirectTo: '' }
 
 ];
 // , canActivate: [AuthGuard]

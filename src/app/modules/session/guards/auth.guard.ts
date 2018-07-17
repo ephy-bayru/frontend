@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  baseUrl = 'http://localhost/smart_school/index.php/api/users';
+  baseUrl = 'http://localhost/smart_school/index.php/api/login';
 
      constructor(private router: Router) {}
 
